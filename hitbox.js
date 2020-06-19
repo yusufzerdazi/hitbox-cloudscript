@@ -10,14 +10,12 @@ handlers.playerWins = function (args) {
         PlayFabId: currentPlayerId,
         StatisticNames: ["wins", "losses"]
     });
-    var wins = currentStatistics.filter(s => s.StatisticName == "wins");
-    var losses = currentStatistics.filter(s => s.StatisticName == "losses");
-    if(wins && losses){
+    if(currentStatistics.length == 2 && currentStatistics[1] != 0){
         var updateStatistics = server.UpdatePlayerStatistics({
             PlayFabId: currentPlayerId,
             Statistics: [{
               "StatisticName": "winloss",
-              "Value": wins / losses
+              "Value": currentStatistics[0] / currentStatistics[1]
             }]
         });
     }
@@ -34,14 +32,12 @@ handlers.playerLoses = function (args) {
         PlayFabId: currentPlayerId,
         StatisticNames: ["wins", "losses"]
     });
-    var wins = currentStatistics.filter(s => s.StatisticName == "wins");
-    var losses = currentStatistics.filter(s => s.StatisticName == "losses");
-    if(wins && losses){
+    if(currentStatistics.length == 2 && currentStatistics[1] != 0){
         var updateStatistics = server.UpdatePlayerStatistics({
             PlayFabId: currentPlayerId,
             Statistics: [{
               "StatisticName": "winloss",
-              "Value": wins / losses
+              "Value": currentStatistics[0] / currentStatistics[1]
             }]
         });
     }
