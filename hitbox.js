@@ -10,7 +10,7 @@ handlers.playerWins = function (args) {
         PlayFabId: currentPlayerId,
         StatisticNames: ["wins", "losses"]
     });
-    if(currentStatistics.length == 2 && currentStatistics[1] != 0){
+    if(currentStatistics.length == 2 && currentStatistics[1].Value != 0){
         var updateStatistics = server.UpdatePlayerStatistics({
             PlayFabId: currentPlayerId,
             Statistics: [{
@@ -32,7 +32,7 @@ handlers.playerLoses = function (args) {
         PlayFabId: currentPlayerId,
         StatisticNames: ["wins", "losses"]
     });
-    if(currentStatistics.length == 2 && currentStatistics[1] != 0){
+    if(currentStatistics.length == 2 && currentStatistics[1].Value != 0){
         var updateStatistics = server.UpdatePlayerStatistics({
             PlayFabId: currentPlayerId,
             Statistics: [{
