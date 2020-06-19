@@ -3,7 +3,7 @@ handlers.playerWins = function (args) {
         PlayFabId: currentPlayerId,
         Statistics: [{
           "StatisticName": "wins",
-          "Value": args
+          "Value": 1
         }]
     });
     var updateStatistics = server.UpdatePlayerStatistics({
