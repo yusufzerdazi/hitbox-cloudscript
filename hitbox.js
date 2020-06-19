@@ -56,3 +56,12 @@ handlers.playerLoses = function (args) {
         });
     }
 };
+handlers.playerKills = function (args) {
+    var updateStatistics = server.UpdatePlayerStatistics({
+        PlayFabId: currentPlayerId,
+        Statistics: [{
+          "StatisticName": "kills",
+          "Value": 1
+        }]
+    });
+};
