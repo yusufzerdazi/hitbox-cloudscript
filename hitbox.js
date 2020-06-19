@@ -15,7 +15,7 @@ handlers.playerWins = function (args) {
             PlayFabId: currentPlayerId,
             Statistics: [{
               "StatisticName": "winloss",
-              "Value": currentStatistics.Statistics[0].Value / currentStatistics.Statistics[1].Value
+              "Value": Math.round(1000 * currentStatistics.Statistics[0].Value / currentStatistics.Statistics[1].Value)
             }]
         });
     }
@@ -37,7 +37,7 @@ handlers.playerLoses = function (args) {
             PlayFabId: currentPlayerId,
             Statistics: [{
               "StatisticName": "winloss",
-              "Value": currentStatistics.Statistics[0].Value / currentStatistics.Statistics[1].Value
+              "Value": Math.round(1000 * currentStatistics.Statistics[0].Value / currentStatistics.Statistics[1].Value)
             }]
         });
     }
