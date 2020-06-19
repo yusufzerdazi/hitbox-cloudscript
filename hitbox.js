@@ -6,6 +6,13 @@ handlers.playerWins = function (args) {
           "Value": 1
         }]
     });
+    var updateStatistics = server.UpdatePlayerStatistics({
+        PlayFabId: currentPlayerId,
+        Statistics: [{
+          "StatisticName": "losses",
+          "Value": 0
+        }]
+    });
     var currentStatistics = server.GetPlayerStatistics({
         PlayFabId: currentPlayerId,
         StatisticNames: ["wins", "losses"]
@@ -26,6 +33,13 @@ handlers.playerLoses = function (args) {
         Statistics: [{
           "StatisticName": "losses",
           "Value": 1
+        }]
+    });
+    var updateStatistics = server.UpdatePlayerStatistics({
+        PlayFabId: currentPlayerId,
+        Statistics: [{
+          "StatisticName": "wins",
+          "Value": 0
         }]
     });
     var currentStatistics = server.GetPlayerStatistics({
