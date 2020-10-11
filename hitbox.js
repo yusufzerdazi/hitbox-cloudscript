@@ -25,6 +25,15 @@ handlers.playerKills = function (args) {
         }]
     });
 };
+handlers.playerDies = function (args) {
+    var updateStatistics = server.UpdatePlayerStatistics({
+        PlayFabId: currentPlayerId,
+        Statistics: [{
+          "StatisticName": "deaths",
+          "Value": 1
+        }]
+    });
+};
 handlers.playerBeaten = function (args) {
     var updateStatistics = server.UpdatePlayerStatistics({
         PlayFabId: currentPlayerId,
