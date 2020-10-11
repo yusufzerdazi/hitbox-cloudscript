@@ -43,3 +43,12 @@ handlers.playerBeaten = function (args) {
         }]
     });
 };
+handlers.playerRankUpdated = function (args) {
+    var updateStatistics = server.UpdatePlayerStatistics({
+        PlayFabId: currentPlayerId,
+        Statistics: [{
+          "StatisticName": "rank",
+          "Value": args
+        }]
+    });
+};
